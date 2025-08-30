@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Advisor</title>
+<style>
+    body { font-family: Arial; background: #f4f4f4; margin:0; padding:0;}
+    .container { max-width: 500px; margin: 50px auto; background:white; padding: 20px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.2);}
+    h1 { text-align:center; color:#3498db;}
+    label { display:block; margin: 15px 0 5px;}
+    select, input[type="submit"] { width: 100%; padding: 10px; border-radius:5px; border:1px solid #ccc; margin-bottom:10px;}
+    input[type="submit"] { background:#3498db; color:white; border:none; cursor:pointer;}
+    input[type="submit"]:hover { background:#2980b9;}
+    .result { margin-top:20px; padding:15px; background:#dff0d8; color:#3c763d; border-radius:5px; display:none;}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Welcome to Travel Advisor AI</h1>
+    <form id="travelForm">
+        <label for="location">Do you prefer a national or international trip?</label>
+        <select id="location" required>
+            <option value="">--Select--</option>
+            <option value="national">National</option>
+            <option value="international">International</option>
+        </select>
+
+        <label for="season">What season do you prefer?</label>
+        <select id="season" required>
+            <option value="">--Select--</option>
+            <option value="summer">Summer</option>
+            <option value="winter">Winter</option>
+            <option value="monsoon">Monsoon</option>
+            <option value="spring">Spring</option>
+        </select>
+
+        <label for="activity">What activity do you prefer?</label>
+        <select id="activity" required>
+            <option value="">--Select--</option>
+            <option value="beach">Beach</option>
+            <option value="snow">Snow</option>
+            <option value="culture">Culture</option>
+            <option value="nature">Nature</option>
+            <option value="hillstation">Hillstation</option>
+            <option value="desert">Desert</option>
+            <option value="citylife">Citylife</option>
+        </select>
+
+        <label for="budget">What is your budget?</label>
+        <select id="budget" required>
+            <option value="">--Select--</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+
+        <label for="travel_type">What type of travel do you prefer?</label>
+        <select id="travel_type" required>
+            <option value="">--Select--</option>
+            <option value="solo">Solo</option>
+            <option value="family">Family</option>
+            <option value="adventure">Adventure</option>
+            <option value="fun">Fun</option>
+            <option value="romantic">Romantic</option>
+        </select>
+
+        <input type="submit" value="Get Recommendation">
+    </form>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+// Destination database
+const destinations = [
+    {name: "Manali", season:"winter", activity:"snow", budget:"medium", travel_type:"adventure", location:"national"},
+    {name: "Goa", season:"summer", activity:"beach", budget:"high", travel_type:"fun", location:"national"},
+    {name: "Jaipur", season:"winter", activity:"culture", budget:"low", travel_type:"family", location:"national"},
+    {name: "Ooty", season:"monsoon", activity:"nature", budget:"medium", travel_type:"romantic", location:"national"},
+    {name: "Shimla", season:"winter", activity:"hillstation", budget:"medium", travel_type:"family", location:"national"},
+    {name: "Paris", season:"spring", activity:"culture", budget:"high", travel_type:"romantic", location:"international"},
+    {name: "Bali", season:"summer", activity:"beach", budget:"medium", travel_type:"fun", location:"international"},
+    {name: "Swiss Alps", season:"winter", activity:"snow", budget:"high", travel_type:"adventure", location:"international"},
+    {name: "Dubai", season:"winter", activity:"desert", budget:"high", travel_type:"fun", location:"international"},
+    {name: "Tokyo", season:"spring", activity:"citylife", budget:"high", travel_type:"solo", location:"international"}
+];
+
+// Form submit event
+document.getElementById("travelForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const loc = document.getElementById("location").value;
+    const season = document.getElementById("season").value;
+    const activity = document.getElementById("activity").value;
+    const budget = document.getElementById("budget").value;
+    const type = document.getElementById("travel_type").value;
+
+    const match = destinations.find(dest =>
+        dest.location === loc &&
+        dest.season === season &&
+        dest.activity === activity &&
+        dest.budget === budget &&
+        dest.travel_type === type
+    );
+
+    const resultDiv = document.getElementById("result");
+    if(match){
+        resultDiv.style.display = "block";
+        resultDiv.innerHTML = `Based on your preferences, we recommend: <strong>${match.name}</strong>`;
+    } else {
+        resultDiv.style.display = "block";
+        resultDiv.innerHTML = "Sorry, no matching destination found. Please try different preferences.";
+    }
+});
+</script>
+
+</body>
+</html>
