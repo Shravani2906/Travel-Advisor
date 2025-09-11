@@ -34,8 +34,8 @@ This project is great for:
 3. A **matching destination** is displayed, or an error message if none matches  
 
 Example:  
-- Preferences: *National + Winter + Snow + Medium + Adventure*  
-- Recommendation: **Manali**   
+- Preferences: *International + Spring + Citylife + High + Solo*  
+- Recommendation: **Tokyo**   
 
 ---
 
