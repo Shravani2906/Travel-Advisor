@@ -61,5 +61,3 @@ Example:
 
 ---
 
-## Project Structure  
-
