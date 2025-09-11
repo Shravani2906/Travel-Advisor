@@ -49,8 +49,6 @@ Example:
 
 ## Screenshots  
 
-*(You can add images once you run it, take screenshots, and upload to GitHub `assets` or `screenshots` folder.)*  
-
 **Form Interface**  
 ![Form Screenshot](./screenshots/form.png)  
 
