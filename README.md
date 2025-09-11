@@ -50,11 +50,11 @@ Example:
 ## Screenshots  
 
 **Form Interface**  
-![Form Screenshot](./screenshots/form.png)  
+![Form Screenshot](form.png)  
 
 **Recommendation Result**  
-![Result1 Screenshot](./screenshots/result1.png) 
-![Result2 Screenshot](./screenshots/result2.png)  
+![Result1 Screenshot](result1.png) 
+![Result2 Screenshot](result2.png)  
 
 
 ---
